@@ -41,8 +41,8 @@ class ChatForm extends Component {
     return(
       <React.Fragment>
         <form className="col-8" onSubmit={this.handleSubmit}>
-        <label for="w3review">Chat</label>
-         <textarea id="w3review" rows="4" cols="20" name="text" onChange={this.handleInput}>
+        <logo for="w3review">Chat</logo>
+         <textarea id="w3review" rows="20" cols="60" name="text" onChange={this.handleInput}>
           </textarea>
           <div className="d-flex">
             <button type="submit" className="btn btn-primary">Submit</button>
