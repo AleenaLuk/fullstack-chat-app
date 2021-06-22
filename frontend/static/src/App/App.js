@@ -15,6 +15,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       selection: !!Cookies.get('Authorization') ? 'chats' : 'login'
     }
@@ -89,6 +90,7 @@ class App extends Component {
       this.setState({ selection: 'login' });
     }
   }
+
   async handleNewChat(chat) {
     console.log('text', chat)
     const options = {
