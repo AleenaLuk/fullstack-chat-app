@@ -27,7 +27,6 @@ class App extends Component {
     this.handleNewChat = this.handleNewChat.bind(this);
   }
 
-
   handleNavigation(selection) {
     this.setState({ selection });
   }

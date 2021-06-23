@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import Cookies from 'js-cookie';
 import ChatDetail from './../ChatDetail/ChatDetail';
 import ChatForm from './../ChatForm/ChatForm';
 
@@ -15,7 +15,6 @@ class ChatList extends Component {
     this.fetchMessages = this.fetchMessages.bind(this);
     this.addMessage = this.addMessage.bind(this);
     this.removeMessage = this.removeMessage.bind(this);
-    this.updateMessage = this.updateMessage.bind(this);
   }
 
   componentDidMount() {
@@ -40,17 +39,33 @@ class ChatList extends Component {
 
   async addMessage(chat) {
     this.props.handleNewChat(chat);
-  }
-
-  async removeMessage(event) {
-      event.preventDefault();
-      this.props.removeMessage(this.state);
-    }
-
-
-  async updateMessage() {
 
   }
+
+ async removeMessage(id) {
+    const options = {
+       method: 'DELETE',
+       headers: {
+         'Content-Type': 'application/json',
+          'X-CSRFToken': Cookies.get('csrftoken'),
+       },
+     }
+
+     fetch(`/api/v1/chats/${id}`, options)
+    .then(response => {
+      const messages = [...this.state.messages];
+      const index = messages.findIndex(message => message.id === id);
+      messages.splice(index, 1);
+      this.setState({ messages });
+    })
+
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
+
+
 
   render() {
     const messages = this.state.messages.map(message => (

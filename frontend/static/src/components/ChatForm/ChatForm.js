@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './ChatForm.css';
+
 class ChatForm extends Component {
 
   constructor(props) {
@@ -42,10 +44,10 @@ class ChatForm extends Component {
       <React.Fragment>
         <form className="col-8" onSubmit={this.handleSubmit}>
         <logo for="w3review">Chat</logo>
-         <textarea id="w3review" rows="20" cols="60" name="text" onChange={this.handleInput}>
+         <textarea id="w3review" rows="5" cols="60" name="text" onChange={this.handleInput}>
           </textarea>
           <div className="d-flex">
-            <button type="submit" className="button-7">Submit</button>
+            <button type="submit" className="btn btn-info">Submit</button>
           </div>
         </form>
      </React.Fragment>
