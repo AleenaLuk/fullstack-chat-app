@@ -10,11 +10,15 @@ class ChatList extends Component {
 
     this.state = {
       messages: [],
+      edit: '',
+      isediting: null,
     }
 
     this.fetchMessages = this.fetchMessages.bind(this);
     this.addMessage = this.addMessage.bind(this);
     this.removeMessage = this.removeMessage.bind(this);
+    this.editMessage = this.editMessage.bind(this);
+    this.saveMessage = this.saveMessage.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +45,40 @@ class ChatList extends Component {
     this.props.handleNewChat(chat);
 
   }
+
+  editMessage(id, message, user) {
+  const currentMessage = {
+    text: message,
+    user: user,
+  }
+         const options = {
+           method: 'PUT',
+           headers: {
+             'Content-Type': 'application/json',
+             'X-CSRFToken': Cookies.get('csrftoken'),
+           },
+           body: JSON.stringify(currentMessage),
+         }
+         fetch(`/api/v1/chats/${id}/`, options)
+           .then(response => response.json())
+            // const messages = [...this.state.messages];
+       }
+
+saveMessage() {
+  const newMessage = {
+    text: '',
+  }
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    body: JSON.stringify(),
+  }
+  // fetch(`/api/v1/chats/${id}/`, options)
+  //   .then(response => response.json())
+}
 
  async removeMessage(id) {
     const options = {
@@ -69,7 +107,7 @@ class ChatList extends Component {
 
   render() {
     const messages = this.state.messages.map(message => (
-      <ChatDetail key={message.id} message={message} removeMessage={this.removeMessage} updateMessage={this.updateMessage}/>
+      <ChatDetail key={message.id} message={message} removeMessage={this.removeMessage} updateMessage={this.updateMessage} editMessage={this.editMessage} saveMessage={this.saveMessage}/>
     ))
     return(
 

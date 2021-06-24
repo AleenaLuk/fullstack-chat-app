@@ -43,7 +43,7 @@ class ChatForm extends Component {
     return(
       <React.Fragment>
         <form className="col-8" onSubmit={this.handleSubmit}>
-        <logo for="w3review">Chat</logo>
+        <h2>Chat</h2>
          <textarea id="w3review" rows="5" cols="60" name="text" onChange={this.handleInput}>
           </textarea>
           <div className="d-flex">
