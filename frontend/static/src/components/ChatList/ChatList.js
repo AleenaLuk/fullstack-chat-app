@@ -46,38 +46,38 @@ class ChatList extends Component {
 
   }
 
-  editMessage(id, message, user) {
-  const currentMessage = {
-    text: message,
-    user: user,
-  }
-         const options = {
-           method: 'PUT',
-           headers: {
-             'Content-Type': 'application/json',
-             'X-CSRFToken': Cookies.get('csrftoken'),
-           },
-           body: JSON.stringify(currentMessage),
-         }
-         fetch(`/api/v1/chats/${id}/`, options)
-           .then(response => response.json())
+  editMessage(message) {
+  // const currentMessage = {
+  //   text: message,
+  //   user: user,
+  // }
+  //        const options = {
+  //          method: 'PUT',
+  //          headers: {
+  //            'Content-Type': 'application/json',
+  //            'X-CSRFToken': Cookies.get('csrftoken'),
+  //          },
+  //          body: JSON.stringify(currentMessage),
+  //        }
+  //        fetch(`/api/v1/chats/${id}/`, options)
+  //          .then(response => response.json())
             // const messages = [...this.state.messages];
        }
 
-saveMessage() {
-  const newMessage = {
-    text: '',
-  }
-  const options = {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': Cookies.get('csrftoken'),
-    },
-    body: JSON.stringify(),
-  }
-  // fetch(`/api/v1/chats/${id}/`, options)
-  //   .then(response => response.json())
+saveMessage(message) {
+  // const startEditing = {
+  //   text: '',
+  // }
+  // const options = {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'X-CSRFToken': Cookies.get('csrftoken'),
+  //   },
+  //   body: JSON.stringify(message),
+  // }
+  // // fetch(`/api/v1/chats/${id}/`, options)
+  // //   .then(response => response.json())
 }
 
  async removeMessage(id) {
@@ -107,7 +107,7 @@ saveMessage() {
 
   render() {
     const messages = this.state.messages.map(message => (
-      <ChatDetail key={message.id} message={message} removeMessage={this.removeMessage} updateMessage={this.updateMessage} editMessage={this.editMessage} saveMessage={this.saveMessage}/>
+      <ChatDetail key={message.id} message={message} removeMessage={this.removeMessage} editMessage={this.editMessage} />
     ))
     return(
 

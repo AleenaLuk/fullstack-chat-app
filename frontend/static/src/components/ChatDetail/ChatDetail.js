@@ -6,7 +6,26 @@ class ChatDetail extends Component {
     this.state = {
       testing: '',
       isEditing: false,
+      text: '',
     }
+
+    this.saveMessage = this.saveMessage.bind(this);
+    this.handleChange = this.handleChange.bind(this); 
+  }
+
+  handleSubmit(event) {
+     event.preventDefault();
+   }
+
+   handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
+
+}
+  saveMessage() {
+
+    this.props.editMessage();
+    this.setState({isEditing: false});
+
   }
   render() {
     return(
@@ -15,7 +34,7 @@ class ChatDetail extends Component {
 
         {
           this.state.isEditing
-          ? <input type="text"/>
+          ? <input type="text" name="text" value={this.state.text} onChange={this.handleChange}/>
           : <p>{this.props.message.text}</p>
         }
 
@@ -23,8 +42,8 @@ class ChatDetail extends Component {
         <button className="btn btn-danger"type="button" onClick={()=>this.props.removeMessage(this.props.message.id)}>delete</button>
         {
           this.state.isEditing
-          ? <button className="btn btn-info"type="button" onClick={()=>this.setState({})}>Save</button>
-          : <button className="btn btn-info"type="button" onClick={()=>this.setState({ isEditing: true })}>Edit</button>
+          ? <button className="btn btn-info"type="button" onClick={() => this.props.editMessage(this.props.message, this.setState.text)}>Save</button>
+          : <button className="btn btn-info"type="button" onClick={() => this.setState({isEditing: true})}>Edit</button>
         }
 
       </li>
