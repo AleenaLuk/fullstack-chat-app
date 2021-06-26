@@ -46,22 +46,24 @@ class ChatList extends Component {
 
   }
 
-  editMessage(message) {
-  // const currentMessage = {
-  //   text: message,
-  //   user: user,
-  // }
-  //        const options = {
-  //          method: 'PUT',
-  //          headers: {
-  //            'Content-Type': 'application/json',
-  //            'X-CSRFToken': Cookies.get('csrftoken'),
-  //          },
-  //          body: JSON.stringify(currentMessage),
-  //        }
-  //        fetch(`/api/v1/chats/${id}/`, options)
-  //          .then(response => response.json())
-            // const messages = [...this.state.messages];
+  editMessage(message, newText) {
+  const currentMessage = {
+    text: newText,
+    user: message.user.id,
+  }
+  console.log(currentMessage)
+    console.log(message, newText)
+         const options = {
+           method: 'PUT',
+           headers: {
+             'Content-Type': 'application/json',
+             'X-CSRFToken': Cookies.get('csrftoken'),
+           },
+           body: JSON.stringify(currentMessage),
+         }
+         fetch(`/api/v1/chats/${message.id}/`, options)
+           .then(response => response.json())
+            const messages = [...this.state.messages];
        }
 
 saveMessage(message) {

@@ -10,7 +10,7 @@ class ChatDetail extends Component {
     }
 
     this.saveMessage = this.saveMessage.bind(this);
-    this.handleChange = this.handleChange.bind(this); 
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(event) {
@@ -22,7 +22,7 @@ class ChatDetail extends Component {
 
 }
   saveMessage() {
-
+console.log('hello')
     this.props.editMessage();
     this.setState({isEditing: false});
 
@@ -38,11 +38,11 @@ class ChatDetail extends Component {
           : <p>{this.props.message.text}</p>
         }
 
-        <p>{this.props.message.user}</p>
+        <p>{this.props.message.user.username}</p>
         <button className="btn btn-danger"type="button" onClick={()=>this.props.removeMessage(this.props.message.id)}>delete</button>
         {
           this.state.isEditing
-          ? <button className="btn btn-info"type="button" onClick={() => this.props.editMessage(this.props.message, this.setState.text)}>Save</button>
+          ? <button className="btn btn-info"type="button" onClick={() => this.props.editMessage(this.props.message, this.state.text)}>Save</button>
           : <button className="btn btn-info"type="button" onClick={() => this.setState({isEditing: true})}>Edit</button>
         }
 
