@@ -44,8 +44,10 @@ class ChatForm extends Component {
       <React.Fragment>
         <form className="col-8" onSubmit={this.handleSubmit}>
         <h2>Chat</h2>
-         <textarea id="w3review" rows="5" cols="60" name="text" onChange={this.handleInput}>
-          </textarea>
+        <div class="md-form amber-textarea active-amber-textarea-2">
+          <i class="fas fa-pencil-alt prefix"></i>
+          <textarea id="form24" class="md-textarea form-control" rows="3"></textarea>
+           </div>
           <div className="d-flex">
             <button type="submit" className="btn btn-info">Submit</button>
           </div>

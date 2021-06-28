@@ -1,112 +1,32 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+body {
+  background-image: url(https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Background.max-1300x1300.jpg);
+}
+#w3review {
+  margin-left: 160px;
+  margin-top: 350px;
 }
 
-*:hover,
-*:focus {
-  outline: none;
-}
-.chat {
-  width: 100%;
-  max-width: 800px;
-  height: calc(100vh - 50px);
-  min-height: 100%;
-  padding: 15px 30px;
-  margin: 0 auto;
-  overflow-y: scroll;
-  background-color: #fff;
-  transform: rotate(180deg);
-  direction: rtl;
-  &__wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-  }
-  &__message {
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    color: #000;
-    background-color: #e6e7ec;
-    max-width: 600px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    position: relative;
-    margin: 15px 0;
-    word-break: break-all;
-    transform: rotate(180deg);
-    direction: ltr;
-    &:after {
-      content: "";
-      width: 20px;
-      height: 12px;
-      display: block;
-      background-image: url("https://stageviewcincyshakes.firebaseapp.com/icon-gray-message.e6296433d6a72d473ed4.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      position: absolute;
-      bottom: -2px;
-      left: -5px;
-    }
-    &-own {
-      color: #fff;
-      margin-left: auto;
-      background-color: #00a9de;
-      &:after {
-        width: 19px;
-        height: 13px;
-        left: inherit;
-        right: -5px;
-        background-image: url("https://stageviewcincyshakes.firebaseapp.com/icon-blue-message.2be55af0d98ee2864e29.png");
-      }
-    }
-  }
+li {
+  margin-left: 100px;
 }
 
-.chat__form {
-  background-color: #e0e0e0;
-  form {
-    max-width: 800px;
-    margin: 0 auto;
-    height: 50px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-  input {
-    height: 40px;
-    font-size: 16px;
-    min-width: 90%;
-    padding-left: 15px;
-    background-color: #fff;
-    border-radius: 15px;
-    border: none;
-  }
-  button {
-    width: 10%;
-    height: 100%;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    text-transform: uppercase;
-    cursor: pointer;
-    &:hover {
-      font-weight: bold;
-    }
-  }
+h2 {
+  /* margin-left: 300px; */
+  font-size: 15rem;
+	    text-align: center;
+      /* height:90vh; */
+      line-height: 38vh;
+	    color: #fcedd8;
+	    /* background: #d52e3f; */
+	   	font-family: 'Niconne', cursive;
+	    font-weight: 700;
+       text-shadow: 5px 5px 0px #eb452b, 
+                  10px 10px 0px #efa032,
+                  15px 15px 0px #46b59b,
+                  20px 20px 0px #017e7f,
+                  25px 25px 0px #052939,
+                  30px 30px 0px #c11a2b,
+                  35px 35px 0px #c11a2b,
+                  40px 40px 0px #c11a2b,
+                  45px 45px 0px #c11a2b;
 }
