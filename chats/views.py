@@ -8,7 +8,7 @@ from .permissions import IsAuthOrReadOnly
 class MessageListAPIView(generics.ListCreateAPIView):
       queryset = Message.objects.all().order_by('-updated_at')
       serializer_class = MessageSerializer
-      permission_classes = (IsAuthOrReadOnly,)
+      # permission_classes = (IsAuthOrReadOnly,)
 
       def perform_create(self, serializer):
           serializer.save(user=self.request.user)
@@ -16,7 +16,7 @@ class MessageListAPIView(generics.ListCreateAPIView):
 class MessageDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-
+    permission_classes = (IsAuthOrReadOnly,)
       # def sample_view(request):
       #     current_user = request.user
       #     print current_user.id
